@@ -1,0 +1,19 @@
+{
+  "name": "@winjit/logger",
+  "version": "1.0.0",
+  "description": "",
+  "license": "ISC",
+  "author": "Sanika Churi",
+  "type": "commonjs",
+  "main": "src/app.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "devDependencies": {
+    "jest": "^30.4.2"
+  },
+  "dependencies": {
+    "uuid": "^14.0.0",
+    "winston": "^3.19.0"
+  }
+}
