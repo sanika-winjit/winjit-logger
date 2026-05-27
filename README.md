@@ -24,9 +24,6 @@ Run the following command in your project terminal:
 # Install the latest version from the main branch
 npm install https://github.com/sanika-winjit/winjit-logger.git
 
-# RECOMMENDED: Install a specific version tag for production stability
-npm install https://github.com/sanika-winjit/winjit-logger.git#v1.0.0
-
 ```
 
 ---
@@ -51,7 +48,9 @@ Description: Specifies the minimum log severity level to output. Any logs below 
 
 ### 1. Initialize Request Tracking (Express Middleware)
 
-To capture every incoming HTTP request and inject unique trace IDs, plug the middleware into your primary Express boot file (e.g., `app.js` or `server.js`):
+To capture every incoming HTTP request and inject unique trace IDs, plug the middleware into your primary Express boot file (e.g., `app.js` or `server.js`).
+
+By default the key considered as request ID in headers is x-request-id', but it can be updated by adding LOGGER_REQUEST_ID_HEADER in .env file
 
 ~~javascript
 const express = require('express');

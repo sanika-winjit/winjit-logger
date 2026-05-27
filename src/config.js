@@ -21,7 +21,7 @@ const maskFields = [...new Set([...DEFAULT_MASK_FIELDS, ...customMaskFields])];
 
 module.exports = {
   // Determine if the app is running in development mode
-    isDevelopment: process.env.NODE_ENV === 'development',
+    isDevelopment: process.env.NODE_ENV !== 'production',
 
   // Current log level (default to 'info' if not specified)
     logLevel: process.env.LOG_LEVEL || 'info',
