@@ -24,6 +24,7 @@ const developmentFormat = winston.format.combine(
         return output;
     })
 );
+
 // As prod logs are mostly scraped by tools like Datadog, Splunk, or ElasticSearch (ELK), they are kept simple
 const productionFormat = winston.format.combine(
   winston.format.errors({ stack: true }), // Automatically append stack traces to JSON output
@@ -37,6 +38,15 @@ const logger = winston.createLogger({
     level: config.logLevel,
     format: winston.format.combine(
         winston.format.timestamp({ format: 'YYYY-MM-DD HH:mm:ss.SSS' }),
+        
+        // Safely extract and assign all flat or unnested metadata payloads passed as additional arguments
+        winston.format((info) => {
+            const splat = info[Symbol.for('splat')];
+            if (splat && splat[0] && typeof splat[0] === 'object' && !(splat[0] instanceof Error)) {
+                Object.assign(info, splat[0]);
+            }
+            return info;
+        })(),
         maskFormatter(), // Apply our recursive masking tool globally across all log levels
         config.isDevelopment ? developmentFormat : productionFormat
     ),

@@ -22,10 +22,10 @@ Run the following command in your project terminal:
 
 ```bash
 # Install the latest version from the main branch
-npm install git+ssh://git@github.com:winjit/winjit-logger.git
+npm install https://github.com/sanika-winjit/winjit-logger.git
 
 # RECOMMENDED: Install a specific version tag for production stability
-npm install git+ssh://git@github.com:winjit/winjit-logger.git#v1.0.0
+npm install https://github.com/sanika-winjit/winjit-logger.git#v1.0.0
 
 ```
 
