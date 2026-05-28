@@ -21,8 +21,8 @@ Since this is an internal Winjit utility, you can install it directly from our p
 Run the following command in your project terminal:
 
 ```bash
-# Install the latest version from the main branch
-npm install https://github.com/sanika-winjit/winjit-logger.git
+# Install the stable version for only Express framework support
+npm install https://github.com/sanika-winjit/winjit-logger.git#v1.0.0
 
 ```
 
